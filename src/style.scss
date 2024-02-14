@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap");
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: cornsilk;
+}
+
+#app {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding-top: 10rem;
+  font-family: "Petit Formal Script", cursive;
+}
+
+.my-name {
+  font-family: "Luckiest Guy", cursive;
+}
+
+.envelope {
+  flex-shrink: 0;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 768px;
+  aspect-ratio: 2;
+  background-color: #ea7383;
+  position: relative;
+  perspective: 240px;
+
+  .left,
+  .right,
+  .top,
+  .letter,
+  .seal {
+    position: absolute;
+  }
+
+  .left,
+  .right {
+    height: 100%;
+  }
+
+  .left,
+  .right,
+  .top {
+    width: 100%;
+  }
+
+  .left {
+    background-color: #f5a5a0;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%, 0% 0%);
+  }
+
+  .right {
+    background: #ee8d91;
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .top {
+    background-color: #ea7383;
+    height: 60%;
+    bottom: 100%;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    z-index: 2;
+    transform: scaleY(-1) translateY(-100%);
+  }
+
+  .letter {
+    height: 100%;
+    width: calc(100% - 1rem);
+    top: 0%;
+    left: 0.5rem;
+    z-index: -1;
+    transform: translateY(0%);
+
+    background-color: #eee4bd;
+    padding: 1rem;
+    border-radius: 2px;
+
+    &-inner {
+      width: 100%;
+      height: 100%;
+      border: 5px solid;
+      border-right-color: #ea7383;
+      border-left-color: #ea7383;
+      border-top-color: #ee8d91;
+      border-bottom-color: #ee8d91;
+      border-radius: 2px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        color: #ea7383;
+        font-size: 24px;
+
+        @media (min-width: 480px) {
+          font-size: 48px;
+        }
+
+        @media (min-width: 640px) {
+          font-size: 28px;
+        }
+
+        span {
+          margin: 0;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .seal {
+    z-index: 10;
+    height: 64px;
+    width: 64px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    outline: 2px solid white;
+    outline-offset: -0.35rem;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: outline-offset 320ms;
+    &:hover {
+      outline-offset: 0rem;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+
+  button {
+    font-family: inherit;
+    background-color: #ea7383;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    outline: none;
+    border: 0;
+    padding: 0.5rem 2rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    position: relative;
+    transition: all 320ms;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -0.125rem;
+      right: -0.125rem;
+      top: -0.125rem;
+      bottom: -0.125rem;
+      outline: 2px solid #df6e7d;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: all 320ms;
+    }
+
+    &:hover {
+      background-color: #ee8d91;
+      &::after {
+        outline-offset: -0.25rem;
+        outline-color: white;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

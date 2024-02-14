@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💞 Happy Valentine Team. 💞</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Luckiest+Guy&family=Petit+Formal+Script&family=Roboto:wght@100;300;400;500;700;900&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <div> -->
+
+      <div id="hurray" class="hide hurray">
+        <dotlottie-player
+          src="https://lottie.host/86e25f2e-b07b-44a9-a651-8c4bd327566d/F3I7nDjyS3.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px"
+          loop
+          autoplay
+        ></dotlottie-player>
+      </div>
+      <div
+        style="
+          color: red;
+          font-family: Inter;
+          font-weight: 900;
+          font-size: 72px;
+        "
+        class="hurray hide"
+      >
+        Enjoy your day!
+      </div>
+      <div class="envelope" id="envelope">
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+
+        <div class="letter" id="envelope">
+          <div class="letter-inner">
+            <p>
+              <span>It is the simplest of joy, </span
+              ><span>
+                the laughter we share together that brings the greatest pleasure
+                to me.</span
+              ><span></span>
+              <span
+                >You hold a special place in my heart, I would love you
+                always.</span
+              ><br /><br /><span>Happy</span><span> </span><span>v</span
+              ><span>a</span><span>l</span><span>e</span><span>n</span
+              ><span>t</span><span>i</span><span>n</span><span>e</span>
+              <span>baby ❤️</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="seal">OPEN</div>
+      </div>
+      <div class="buttons">
+        <button id="clickbtn">Share more love 🎉</button>
+      </div>
+
+      <!-- </div> -->
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <script>
+      const btn = document.getElementById("clickbtn");
+      const hurray = document.getElementsByClassName("hurray");
+      const envelope = document.getElementById("envelope");
+
+      btn.addEventListener("click", () => {
+        for (let i = 0; i < hurray.length; i++) {
+          hurray[i].classList.remove("hide");
+          hurray[i].classList.add("show");
+        }
+        envelope.classList.add("hide");
+        btn.classList.add("hide");
+      });
+    </script>
+  </body>
+</html>
